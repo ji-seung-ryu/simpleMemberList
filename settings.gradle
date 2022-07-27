@@ -1,0 +1,6 @@
+rootProject.name = 'memberList'
+include 'configuration'
+include 'entrypoints'
+include 'core'
+include 'dataproviders'
+
