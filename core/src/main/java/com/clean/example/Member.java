@@ -13,6 +13,5 @@ public class Member {
     public Member (String memberId, String name){
         this.memberId = memberId;
         this.name = name;
-
     }
 }

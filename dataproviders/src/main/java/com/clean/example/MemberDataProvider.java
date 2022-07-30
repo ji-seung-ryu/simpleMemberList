@@ -25,4 +25,20 @@ public class MemberDataProvider implements GetMemberDetails{
     }
 
 
+
+    @Override
+    public void deposit (String memberId, int amount){
+        MemberEntity memberEntity = this.memberRepository.findByMemberId(memberId);
+        int curBalance = memberEntity.getBalance();
+        memberEntity.setBalance(curBalance+amount);
+
+    }
+
+    @Override
+    public void withdraw (String memberId, int amount){
+        deposit(memberId, -amount);
+    }
+
+
+
 }

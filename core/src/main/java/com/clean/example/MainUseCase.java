@@ -2,10 +2,6 @@ package com.clean.example;
 
 public class MainUseCase {
 
-
-    public String s(String id){
-        return "aa";
-    }
     private final GetMemberDetails getMemberDetails;
 
     public MainUseCase (GetMemberDetails getMemberDetails){

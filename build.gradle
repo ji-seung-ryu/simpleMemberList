@@ -35,8 +35,8 @@ subprojects {
         annotationProcessor 'org.projectlombok:lombok'
         annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
 
-        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.1'
+        testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.7.1'
     }
 
     test {
@@ -56,7 +56,7 @@ project(':core') {
 project(':dataproviders') {
     dependencies {
         // 컴파일시 core 모듈을 가져온다.
-        compileOnly project(':core')
+        implementation project(":core")
         implementation 'org.springframework.boot:spring-boot-starter-web'
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
         developmentOnly 'org.springframework.boot:spring-boot-devtools'
