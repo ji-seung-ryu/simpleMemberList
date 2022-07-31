@@ -17,9 +17,8 @@ public class MainController {
     }
 
     @RequestMapping("/")
-    @ResponseBody
     public String index() {
-        mainUseCase.CreateMember("aa","SUCCESS!!");
-        return mainUseCase.GetMemberDetails("aa").getName();
+
+        return "init";
     }
 }
