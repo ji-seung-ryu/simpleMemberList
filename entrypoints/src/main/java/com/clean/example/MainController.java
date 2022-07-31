@@ -2,9 +2,9 @@ package com.clean.example;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import com.clean.example.MainUseCase;
+import org.springframework.ui.Model;
 
 @Controller
 public class MainController {
@@ -16,9 +16,33 @@ public class MainController {
         this.mainUseCase = mainUseCase;
     }
 
-    @RequestMapping("/")
-    public String index() {
+    @GetMapping("/")
+    public String GetInit() {
 
         return "init";
     }
+
+    @PostMapping("/")
+    public String PostInit(){
+        return "redirect:/memberList";
+    }
+
+    @GetMapping("/memberList")
+    public String GetMemberList() {
+        return "memberList";
+    }
+
+    @GetMapping("/greeting")
+    public String greetingForm(Model model) {
+        model.addAttribute("greeting", new Greeting());
+        return "greeting";
+    }
+
+    @PostMapping("/greeting")
+    public String greetingSubmit(@ModelAttribute Greeting greeting, Model model) {
+        model.addAttribute("greeting", greeting);
+        return "result";
+    }
+
+
 }
