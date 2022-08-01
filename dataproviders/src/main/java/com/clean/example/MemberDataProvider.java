@@ -3,6 +3,9 @@ package com.clean.example;
 import com.clean.example.GetMemberDetails;
 import com.clean.example.Member;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MemberDataProvider implements GetMemberDetails{
 
     private final MemberRepository memberRepository;
@@ -37,6 +40,14 @@ public class MemberDataProvider implements GetMemberDetails{
     @Override
     public void withdraw (String memberId, int amount){
         deposit(memberId, -amount);
+    }
+
+    @Override
+    public List<String> getAllMemberName(){
+        List<MemberEntity> AllMember = this.memberRepository.findAll();
+        List<String> AllMemberName = new ArrayList<>();
+        for (MemberEntity m : AllMember) AllMemberName.add(m.getName());
+        return AllMemberName;
     }
 
 

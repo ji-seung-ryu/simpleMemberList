@@ -1,5 +1,6 @@
 package com.clean.example;
 
+import java.util.List;
 public class MainUseCase {
 
     private final GetMemberDetails getMemberDetails;
@@ -14,5 +15,7 @@ public class MainUseCase {
     public Member GetMemberDetails(String id){
         return getMemberDetails.getDetails(id);
     }
+    public List<String> GetAllMemberName() {return getMemberDetails.getAllMemberName(); }
+
 
 }

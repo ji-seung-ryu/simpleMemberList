@@ -7,6 +7,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 @Entity
 public class MemberEntity {
+    public MemberEntity(){
+
+    }
+
     public MemberEntity (String memberId, String name) {
         this.name = name;
         this.memberId = memberId;

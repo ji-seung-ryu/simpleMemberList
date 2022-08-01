@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import com.clean.example.MainUseCase;
 import org.springframework.ui.Model;
+import java.util.List;
 
 @Controller
 public class MainController {
@@ -17,32 +18,31 @@ public class MainController {
     }
 
     @GetMapping("/")
-    public String GetInit() {
+    public String GetIndex() {
 
-        return "init";
+        return "redirect:/entering";
     }
 
-    @PostMapping("/")
-    public String PostInit(){
-        return "redirect:/memberList";
-    }
 
     @GetMapping("/memberList")
-    public String GetMemberList() {
+    public String GetMemberList(Model model) {
+        List<String> AllMemberName = this.mainUseCase.GetAllMemberName();
+        model.addAttribute("memberList", AllMemberName);
         return "memberList";
     }
 
-    @GetMapping("/greeting")
-    public String greetingForm(Model model) {
-        model.addAttribute("greeting", new Greeting());
-        return "greeting";
+
+    @GetMapping("/entering")
+    public String getEnter(Model model){
+        model.addAttribute("entering", new Entering());
+        return "entering";
     }
 
-    @PostMapping("/greeting")
-    public String greetingSubmit(@ModelAttribute Greeting greeting, Model model) {
-        model.addAttribute("greeting", greeting);
-        return "result";
+    @PostMapping("/entering")
+    public String postEnter (@ModelAttribute Entering entering, Model model){
+        mainUseCase.CreateMember(entering.getMemberId(),entering.getName());
+        model.addAttribute("entering", entering);
+        return "redirect:/memberList";
     }
-
 
 }
