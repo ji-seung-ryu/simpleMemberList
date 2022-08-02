@@ -18,9 +18,11 @@ public class MainController {
     }
 
     @GetMapping("/")
-    public String GetIndex() {
+    public String GetIndex(Model model) {
+        model.addAttribute("entering", new Entering());
 
-        return "redirect:/entering";
+        return "index";
+  //      return "redirect:/entering";
     }
 
 
