@@ -99,6 +99,11 @@ project(':configuration') {
         implementation 'org.springframework.boot:spring-boot-starter-web'
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
         developmentOnly 'org.springframework.boot:spring-boot-devtools'
+        // https://mvnrepository.com/artifact/org.springframework/spring-messaging
+        implementation group: 'org.springframework', name: 'spring-messaging', version: '5.3.22'
+// https://mvnrepository.com/artifact/org.springframework/spring-websocket
+        implementation group: 'org.springframework', name: 'spring-websocket', version: '5.3.22'
+
 
     }
 }

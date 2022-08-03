@@ -1,4 +1,4 @@
-package com.clean.example;
+package com.clean.example.dataproviders;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

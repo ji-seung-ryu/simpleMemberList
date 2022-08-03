@@ -1,4 +1,4 @@
-package com.clean.example;
+package com.clean.example.controller;
 
 public class Entering {
     private String memberId;

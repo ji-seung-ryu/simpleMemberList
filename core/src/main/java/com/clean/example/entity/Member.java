@@ -1,4 +1,4 @@
-package com.clean.example;
+package com.clean.example.entity;
 
 public class Member {
     private String memberId, name;

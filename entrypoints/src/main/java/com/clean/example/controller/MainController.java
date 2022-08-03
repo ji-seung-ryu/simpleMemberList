@@ -1,9 +1,10 @@
-package com.clean.example;
+package com.clean.example.controller;
 
+import com.clean.example.controller.Entering;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import com.clean.example.MainUseCase;
+import com.clean.example.usecase.MainUseCase;
 import org.springframework.ui.Model;
 import java.util.List;
 

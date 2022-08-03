@@ -1,4 +1,7 @@
-package com.clean.example;
+package com.clean.example.usecase;
+
+import com.clean.example.entity.Member;
+import com.clean.example.usecase.GetMemberDetails;
 
 import java.util.List;
 public class MainUseCase {

@@ -1,10 +1,11 @@
-package com.clean.example;
+package com.clean.example.dataproviders;
 
-import com.clean.example.GetMemberDetails;
-import com.clean.example.Member;
+import com.clean.example.usecase.GetMemberDetails;
+import com.clean.example.entity.Member;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class MemberDataProvider implements GetMemberDetails{
 
@@ -30,8 +31,8 @@ public class MemberDataProvider implements GetMemberDetails{
 
 
     @Override
-    public void deposit (String memberId, int amount){
-        MemberEntity memberEntity = this.memberRepository.findByMemberId(memberId);
+    public void deposit (String memberId, int amount) throws NoSuchElementException {
+        MemberEntity memberEntity = this.memberRepository.findByMemberId(memberId).orElseThrow();
         int curBalance = memberEntity.getBalance();
         memberEntity.setBalance(curBalance+amount);
 
