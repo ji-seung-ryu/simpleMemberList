@@ -13,7 +13,7 @@ public class repositoryTest {
 
     @Test
     void TestJpa(){
-        MemberEntity m = new MemberEntity("asd","sada");
+        MemberData m = new MemberData("asd","sada");
 
         this.memberRepository.save(m);
 

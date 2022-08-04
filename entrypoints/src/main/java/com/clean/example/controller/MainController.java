@@ -7,11 +7,12 @@ import org.springframework.web.bind.annotation.*;
 import com.clean.example.usecase.MainUseCase;
 import org.springframework.ui.Model;
 import java.util.List;
-
+import java.util.logging.Logger;
 @Controller
 public class MainController {
 
     private MainUseCase mainUseCase;
+    private final static Logger LOG = Logger.getGlobal();
 
     @Autowired
     public MainController (MainUseCase mainUseCase){
@@ -43,9 +44,17 @@ public class MainController {
 
     @PostMapping("/entering")
     public String postEnter (@ModelAttribute Entering entering, Model model){
-        mainUseCase.CreateMember(entering.getMemberId(),entering.getName());
-        model.addAttribute("entering", entering);
-        return "redirect:/memberList";
+        String memberId = entering.getMemberId();
+        String name = entering.getName();
+        if (mainUseCase.GetMemberByMemberId(memberId).isPresent()){
+            model.addAttribute("isDuplicated", true);
+            return "index";
+        }
+        else {
+            mainUseCase.CreateMember(entering.getMemberId(), entering.getName());
+            model.addAttribute("entering", entering);
+            return "redirect:/memberList";
+        }
     }
 
 }

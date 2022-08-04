@@ -6,12 +6,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 @Entity
-public class MemberEntity {
-    public MemberEntity(){
+public class MemberData {
+    public MemberData(){
 
     }
 
-    public MemberEntity (String memberId, String name) {
+    public MemberData(String memberId, String name) {
         this.name = name;
         this.memberId = memberId;
         this.balance = 0;
@@ -29,6 +29,9 @@ public class MemberEntity {
     @Column
     private int balance;
 
+    public String getMemberId (){
+        return this.memberId;
+    }
     public String getName(){
         return this.name;
     }

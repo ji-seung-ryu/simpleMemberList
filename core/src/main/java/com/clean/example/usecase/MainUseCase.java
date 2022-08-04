@@ -4,6 +4,8 @@ import com.clean.example.entity.Member;
 import com.clean.example.usecase.GetMemberDetails;
 
 import java.util.List;
+import java.util.Optional;
+
 public class MainUseCase {
 
     private final GetMemberDetails getMemberDetails;
@@ -14,15 +16,11 @@ public class MainUseCase {
 
     public void CreateMember(String memberId, String name){
 
-        try{
-            getMemberDetails.create(memberId, name);
-        } catch (Exception e){
-            System.out.println(e.getMessage());
+        getMemberDetails.create(memberId, name);
 
-        }
     }
-    public Member GetMemberDetails(String id){
-        return getMemberDetails.getDetails(id);
+    public Optional<Member> GetMemberByMemberId(String memberId){
+        return getMemberDetails.getMemberByMemberId(memberId);
     }
     public List<String> GetAllMemberName() {return getMemberDetails.getAllMemberName(); }
 

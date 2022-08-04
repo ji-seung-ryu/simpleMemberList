@@ -5,43 +5,49 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html xmlns:th="https://www.thymeleaf.org">
-	<head>
-		<title>Eventually by HTML5 UP</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" th:href="@{/css/main.css}" />
-	</head>
-	<body class="is-preload">
+<head>
+    <title>Eventually by HTML5 UP</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+</head>
+<body class="is-preload">
 
-		<!-- Header -->
-			<header id="header">
-				<h1>Eventually</h1>
-				<p>This is a practice for a Clean Architecture<br />
-					The only way to get there quickly is to get there right.</p>
-			</header>
+<!-- Header -->
+<header id="header">
+    <h1>Eventually</h1>
+    <p>This is a practice for a Clean Architecture<br/>
+        The only way to get there quickly is to get there right.</p>
+</header>
 
-		<!-- Signup Form -->
-			<form id="signup-form" th:action="@{/entering}" th:object="${entering}" method="post" action="#">
-				<input type="text" th:field="*{memberId}" placeholder="memberId"/>
-				<input type="text" th:field="*{name}" placeholder="name"/>
-				<input type="submit" value="Sign Up" />
-			</form>
+<!-- Signup Form -->
+<form id="signup-form" th:action="@{/entering}" th:object="${entering}" method="post" action="#">
+    <input type="text" th:field="*{memberId}" placeholder="memberId"/>
+    <input type="text" th:field="*{name}" placeholder="name"/>
+    <input type="submit" value="Sign Up"/>
+</form>
 
-		<!-- Footer -->
-			<footer id="footer">
-				<ul class="icons">
-					<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-					<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-					<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-					<li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
-				</ul>
-				<ul class="copyright">
-					<li>&copy; Untitled.</li><li>Credits: <a href="http://html5up.net">HTML5 UP</a></li>
-				</ul>
-			</footer>
+<!-- Footer -->
+<footer id="footer">
+    <ul class="icons">
+        <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+        <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+        <li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+        <li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
+    </ul>
+    <ul class="copyright">
+        <li>&copy; Untitled.</li>
+        <li>Credits: <a href="http://html5up.net">HTML5 UP</a></li>
+    </ul>
+</footer>
 
-		<!-- Scripts -->
-			<script th:src="@{/js/main.js}"></script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var isDuplicated = /*[[${isDuplicated}]]*/ 'default';
+    /*]]>*/
+</script>
+<!-- Scripts -->
+<script th:src="@{/js/main.js}"></script>
 
-	</body>
+</body>
 </html>
