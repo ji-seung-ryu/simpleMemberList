@@ -13,7 +13,13 @@ public class MainUseCase {
     }
 
     public void CreateMember(String memberId, String name){
-        getMemberDetails.create(memberId, name);
+
+        try{
+            getMemberDetails.create(memberId, name);
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+
+        }
     }
     public Member GetMemberDetails(String id){
         return getMemberDetails.getDetails(id);

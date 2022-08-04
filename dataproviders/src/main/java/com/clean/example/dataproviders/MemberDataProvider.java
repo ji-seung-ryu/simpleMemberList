@@ -15,15 +15,19 @@ public class MemberDataProvider implements GetMemberDetails{
         this.memberRepository = memberRepository;
     }
     @Override
-    public Member getDetails(String memberId){
+    public Member getDetails(String memberId) throws Exception{
 
-        MemberEntity memberEntity = this.memberRepository.findByMemberId(memberId);
+        List<MemberEntity> memberEntity = this.memberRepository.findByMemberId(memberId);
+        if (memberEntity.isEmpty()) {
+            throw new Exception();
+        }
         return new Member (memberId, memberEntity.getName());
 
     }
 
     @Override
-    public void create(String memberId, String name){
+    public void create(String memberId, String name) throws Exception{
+        if (isDuplicated(memberId)) throw new Exception();
         MemberEntity memberEntity = new MemberEntity(memberId, name);
         this.memberRepository.save(memberEntity);
     }
@@ -32,7 +36,8 @@ public class MemberDataProvider implements GetMemberDetails{
 
     @Override
     public void deposit (String memberId, int amount) throws NoSuchElementException {
-        MemberEntity memberEntity = this.memberRepository.findByMemberId(memberId).orElseThrow();
+        List<MemberEntity> memberEntity = this.memberRepository.findByMemberId(memberId);
+
         int curBalance = memberEntity.getBalance();
         memberEntity.setBalance(curBalance+amount);
 
@@ -51,6 +56,10 @@ public class MemberDataProvider implements GetMemberDetails{
         return AllMemberName;
     }
 
+    private boolean isDuplicated(String memberId){
+        List<MemberEntity> memberEntity = this.memberRepository.findByMemberId(memberId);
+        return !memberEntity.isEmpty();
+    }
 
 
 }
