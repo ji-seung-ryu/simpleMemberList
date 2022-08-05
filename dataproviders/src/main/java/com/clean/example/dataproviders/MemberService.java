@@ -5,17 +5,18 @@ import com.clean.example.entity.Member;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import org.springframework.stereotype.Service;
 
 import java.util.logging.Logger;
 import java.util.Optional;
 
-public class MemberDataProvider implements GetMemberDetails {
+@Service
+public class MemberService implements GetMemberDetails {
 
     private final MemberRepository memberRepository;
     private final static Logger LOG = Logger.getGlobal();
 
-    public MemberDataProvider(MemberRepository memberRepository) {
+    public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
 

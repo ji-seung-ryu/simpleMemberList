@@ -39,6 +39,8 @@ public class MemberData {
     public void setBalance(int balance) {
         this.balance = balance;
     }
+    public void setName (String name){this.name = name;}
+    public void setMemberId (String memberId){this.memberId = memberId;}
 
 
 
