@@ -24,5 +24,7 @@ public class MainUseCase {
     }
     public List<String> GetAllMemberName() {return getMemberDetails.getAllMemberName(); }
 
-
+    public String greet() {
+        return "Hello, World";
+    }
 }
